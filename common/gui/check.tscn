@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://common/gui/check.gd" type="Script" id=1]
+[ext_resource path="res://profile/login/res/btn_ye_cl.webp" type="Texture2D" id=2]
+
+[node name="check" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+custom_minimum_size = Vector2( 50, 50 )
+script = ExtResource( 1 )
+
+[node name="Hook" type="TextureRect" parent="."]
+offset_right = 51.0
+offset_bottom = 51.0
+mouse_filter = 2
+texture = ExtResource( 2 )
+
+[connection signal="on_click" from="." to="." method="_on_Control_on_click"]

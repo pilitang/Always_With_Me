@@ -1,0 +1,30 @@
+{
+	"开场剧情":[
+		{
+			"texture":"res://dialogue/主角.png",
+			"content":"aaaaaaaaa11111",
+			"post":0,
+			"name":"配角1"
+		},
+		{
+			"texture": "res://dialogue/厉姐.png",
+			"content": "12345",
+			"post": 1,
+			"name": "配角2"
+		}
+	],
+	"开场剧情_1":[
+		{
+			"texture":"res://dialogue/主角.png",
+			"content":"aaaaaaaaa11111",
+			"post":0,
+			"name":"配角1"
+		},
+		{
+			"texture": "res://dialogue/厉姐.png",
+			"content": "12345",
+			"post": 1,
+			"name": "配角2"
+		}
+	]
+}

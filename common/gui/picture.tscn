@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://blacc63gw1e56"]
+
+[ext_resource type="Texture2D" uid="uid://dph3xqgj3koh" path="res://icon.png" id="1"]
+[ext_resource type="Script" path="res://common/gui/picture.gd" id="2"]
+[ext_resource type="Script" path="res://common/base/base_control.gd" id="5"]
+[ext_resource type="StyleBox" path="res://common/gui/stylebox/image_unselect.stylebox" id="5_3ebia"]
+[ext_resource type="Script" path="res://common/gui/common_image.gd" id="6"]
+
+[node name="root" type="MarginContainer"]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_horizontal = 4
+script = ExtResource("2")
+
+[node name="TextureRect2" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.886275, 0.886275, 0.886275, 1)
+
+[node name="image" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1")
+expand_mode = 1
+script = ExtResource("6")
+
+[node name="Control" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="circle_selection" type="MarginContainer" parent="Control"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("5")
+
+[node name="select" type="Label" parent="Control/circle_selection"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("5_3ebia")
+horizontal_alignment = 1
+vertical_alignment = 1

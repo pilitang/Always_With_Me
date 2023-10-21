@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxhq3s7u5a7r8"]
+
+[ext_resource type="AudioStream" uid="uid://ddnxljfdd4xmi" path="res://Music/Always with me.mp3" id="1_qk5n3"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_qk5n3")
+autoplay = true

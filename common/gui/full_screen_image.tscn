@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://g66gtcob8yqh"]
+
+[ext_resource type="Script" path="res://common/gui/full_screen_image.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://bk3tiqne5kd2p" path="res://common/gui/common_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://wht5kbkqe2qt" path="res://sociality/starwish/res/icon_arr.webp" id="3"]
+[ext_resource type="Script" path="res://common/gui/common_pager.gd" id="4"]
+[ext_resource type="Script" path="res://common/base/base_control.gd" id="5"]
+[ext_resource type="Animation" uid="uid://b1v8js2vt5t0p" path="res://common/anim/fade_out.anim" id="6"]
+[ext_resource type="Animation" uid="uid://gdphglykxual" path="res://common/anim/fade_in.anim" id="8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yowqh"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.713726)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+expand_margin_left = 10.0
+expand_margin_top = 2.0
+expand_margin_right = 10.0
+expand_margin_bottom = 2.0
+
+[node name="full_screen_image" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+mouse_filter = 2
+script = ExtResource("1")
+enter_anim = ExtResource("8")
+exit_anim = ExtResource("6")
+
+[node name="bg" parent="." instance=ExtResource("2")]
+layout_mode = 2
+
+[node name="CommonPager" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("4")
+enable_scroll = true
+
+[node name="common_title" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="tileLabel" type="Label" parent="common_title"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_yowqh")
+text = "1/10"
+
+[node name="common_title_back" type="MarginContainer" parent="common_title"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 50
+script = ExtResource("5")
+
+[node name="TextureRect2" type="TextureRect" parent="common_title/common_title_back"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("3")
+stretch_mode = 3
+
+[node name="confirm" type="MarginContainer" parent="common_title"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 37
+theme_override_constants/margin_right = 46
+script = ExtResource("5")
+
+[node name="confirm_label" type="Label" parent="common_title/confirm"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 48
+text = "确认"
+horizontal_alignment = 2
+
+[connection signal="index_change" from="CommonPager" to="." method="_on_CommonPager_index_change"]
+[connection signal="on_click" from="CommonPager" to="." method="_on_CommonPager_on_click"]
+[connection signal="on_click" from="common_title/common_title_back" to="." method="_on_common_title_back_on_click"]

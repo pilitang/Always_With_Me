@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c48lggr08vweh"
+path="res://.godot/imported/47. wear.mp3-fea04856e6ed696357cb2e041baf925d.mp3str"
+
+[deps]
+
+source_file="res://Music/scene1/47. wear.mp3"
+dest_files=["res://.godot/imported/47. wear.mp3-fea04856e6ed696357cb2e041baf925d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://cam3ep4prcdx7"]
+
+[ext_resource type="Shader" path="res://common/shader/round.gdshader" id="1"]
+[ext_resource type="Script" path="res://common/gui/common_indicator.gd" id="2"]
+[ext_resource type="Script" path="res://common/gui/common_colorect.gd" id="3"]
+[ext_resource type="Script" path="res://common/gui/trailing.gd" id="4"]
+
+[sub_resource type="ShaderMaterial" id="1"]
+shader = ExtResource("1")
+shader_parameter/size = Vector2(20, 8)
+shader_parameter/round_all = 0.0
+shader_parameter/left_top = 4.0
+shader_parameter/right_top = 4.0
+shader_parameter/left_bottom = 4.0
+shader_parameter/right_botom = 4.0
+shader_parameter/border_color = null
+shader_parameter/Background_color = null
+shader_parameter/Background_color_a = 0.0
+shader_parameter/border_width = 0.0
+shader_parameter/isColor = false
+shader_parameter/isBackground_color = false
+
+[sub_resource type="ShaderMaterial" id="2"]
+shader = ExtResource("1")
+shader_parameter/size = Vector2(20, 8)
+shader_parameter/round_all = 0.0
+shader_parameter/left_top = 4.0
+shader_parameter/right_top = 4.0
+shader_parameter/left_bottom = 4.0
+shader_parameter/right_botom = 4.0
+shader_parameter/border_color = null
+shader_parameter/Background_color = null
+shader_parameter/Background_color_a = 0.0
+shader_parameter/border_width = 0.0
+shader_parameter/isColor = false
+shader_parameter/isBackground_color = false
+
+[node name="CommonIndicator" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -840.0
+mouse_filter = 2
+script = ExtResource("2")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+mouse_filter = 2
+
+[node name="tabContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+mouse_filter = 2
+
+[node name="line" type="ColorRect" parent="MarginContainer"]
+material = SubResource("1")
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+script = ExtResource("3")
+
+[node name="Line2D" type="Line2D" parent="MarginContainer/line"]
+position = Vector2(10, 3.92)
+width = 8.179
+script = ExtResource("4")
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/line"]
+self_modulate = Color(0.627451, 0.862745, 1, 1)
+material = SubResource("2")
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 8.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+
+[node name="Timer" type="Timer" parent="MarginContainer/line"]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="MarginContainer/line/Timer" to="MarginContainer/line" method="_on_Timer_timeout"]

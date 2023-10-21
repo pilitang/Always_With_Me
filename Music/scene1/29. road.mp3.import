@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://donblre6cfsuu"
+path="res://.godot/imported/29. road.mp3-7d40fe9b7051df8fb37ab696517d29a9.mp3str"
+
+[deps]
+
+source_file="res://Music/scene1/29. road.mp3"
+dest_files=["res://.godot/imported/29. road.mp3-7d40fe9b7051df8fb37ab696517d29a9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

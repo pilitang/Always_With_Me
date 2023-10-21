@@ -1,0 +1,273 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddq3mxn1wtjlt"]
+
+[ext_resource type="Texture2D" uid="uid://d2ypdefery1ea" path="res://gres/neiyuan_1.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://d3xv84ck4ggxi" path="res://gres/neiyuan.png" id="2"]
+[ext_resource type="Shader" path="res://common/shader/round.gdshader" id="3"]
+[ext_resource type="Script" path="res://common/color_select.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://6x5dpnjvhu8x" path="res://icon.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cb3smr3e8dkid" path="res://gres/icon.webp" id="7"]
+
+[sub_resource type="ShaderMaterial" id="4"]
+shader = ExtResource("3")
+shader_parameter/size = Vector2(1, 1)
+shader_parameter/round_all = 0.5
+shader_parameter/left_top = 0.0
+shader_parameter/right_top = 0.0
+shader_parameter/left_bottom = 0.0
+shader_parameter/right_botom = 0.0
+shader_parameter/border_color = null
+shader_parameter/Background_color = null
+shader_parameter/Background_color_a = 0.0
+shader_parameter/border_width = 0.0
+shader_parameter/isColor = true
+shader_parameter/isBackground_color = false
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+render_mode blend_mix,unshaded;
+//float M_PI = 3.1415926535897932384626433832795;
+//#define M_PI 3.1415926535897932384626433832795
+//
+//#define COMPARE_RYB_RGB_WHEELS 0
+
+// ===============================================================================
+// Ittan's Color Wheel remapping 
+// based checked \"Paint Inspired Color Compositing\" - Nathan Gossett, Baoquan Chen
+// https://bahamas10.github.io/ryb/assets/ryb.pdf
+
+float cubicLerp(float A, float B, float t)
+{
+    t = t*t*(3.0-2.0*t);
+    return A+(B-A)*t;
+}
+
+vec2 cubicLerpv2(vec2 A, vec2 B, float t)
+{
+    t = t*t*(3.0-2.0*t);
+    return A+(B-A)*t;
+}
+
+vec4 cubicLerpv4(vec4 A, vec4 B, float t)
+{
+    t = t*t*(3.0-2.0*t);
+    return A+(B-A)*t;
+}
+
+vec3 ryb2rgb(vec3 ryb)
+{
+    vec3 rgb;
+    //red
+    vec4 X = cubicLerpv4(vec4(1.0), vec4(0.163, 0.0f, 0.5, 0.2), ryb.z);
+    vec2 Y = cubicLerpv2(X.xz, X.yw, ryb.y);
+    rgb.r  = cubicLerp(Y.x, Y.y, ryb.x);
+    //green
+    X      = cubicLerpv4(vec4(1.0, 1.0, 0.0, 0.5), vec4(0.373, 0.66, 0.0, 0.094), ryb.z);
+    Y      = cubicLerpv2(X.xz, X.yw, ryb.y);
+    rgb.g  = cubicLerp(Y.x, Y.y, ryb.x);
+    //blue
+    X      = cubicLerpv4(vec4(1.0, 0.0, 0.0, 0.0), vec4(0.6, 0.2, 0.5, 0.0), ryb.z);
+    Y      = cubicLerpv2(X.xz, X.yw, ryb.y);
+    rgb.b  = cubicLerp(Y.x, Y.y, ryb.x);
+    return rgb;
+}
+vec3 hsv2rgb(vec3 c)
+{
+    const vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+vec4 SampleColorWheelRGB(vec2 uv,vec2 iResolution,float pi)
+{
+    const float sat = 0.9;
+    const float rmin = 0.7;
+    const float rmax = 1.0;    
+
+    uv = uv*2.0 - 1.0;
+    float l = length(uv);
+
+	if (l >= rmin && l <= rmax)
+	{
+        float c = (rmax + rmin) * 0.5;
+        float h = (rmax - rmin) * 0.5;
+		l = 1.0 - abs((l - c) / h);
+		l = clamp(l * iResolution.y * 0.0625, 0.0, 1.0);
+		
+        float theta = 3.0 + 3.0 * atan(uv.x, uv.y) / pi;	
+        float hue = theta / 6.0 + 0.5;
+    
+        return vec4(hsv2rgb(vec3(hue, 1.0, 1.0)), l);
+	}
+    return vec4(0.0);
+}
+vec4 SampleColorWheelRYB(vec2 uv,vec2 iResolution,float pi)
+{
+    vec4 cw = SampleColorWheelRGB(uv,iResolution,pi);
+    return vec4(ryb2rgb(cw.rgb), cw.a);
+}
+
+void fragment()
+{
+	vec2 iMouse =vec2(1.0,1.0);
+    const vec3 panel = vec3(0.);
+	vec2 iResolution = vec2(150.0,100.0);
+    vec2 uv = UV.xy * vec2(0.665,1.0)+ vec2(.201,0.0);
+    uv.x = (uv.x - 0.2)*iResolution.x/iResolution.y;
+    
+    float mouseU = iMouse.x / iResolution.x;
+	
+    vec4 ryb = SampleColorWheelRYB(uv,iResolution,3.14);
+  
+    vec4 rgb = SampleColorWheelRGB(uv,iResolution,3.14);
+    vec4 col = mix(rgb, ryb, smoothstep(iMouse.x-1.0, iMouse.x+1.0, UV.x));
+    COLOR = col;
+
+}"
+
+[sub_resource type="ShaderMaterial" id="2"]
+shader = SubResource("1")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.609375
+anchor_top = 0.305556
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer"]
+material = SubResource("4")
+custom_minimum_size = Vector2(750, 750)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="waiweiContainer" type="CenterContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ViewportContainer" type="SubViewportContainer" parent="CenterContainer/waiweiContainer"]
+layout_mode = 2
+
+[node name="waiweiViewport" type="SubViewport" parent="CenterContainer/waiweiContainer/ViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(740, 740)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/waiweiContainer/ViewportContainer/waiweiViewport"]
+material = SubResource("2")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = -370.0
+offset_right = 370.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6")
+expand_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="neiquanContainer" type="SubViewportContainer" parent="CenterContainer/waiweiContainer"]
+layout_mode = 2
+
+[node name="neiquanViewport" type="SubViewport" parent="CenterContainer/waiweiContainer/neiquanContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4
+
+[node name="baseColor" type="TextureRect" parent="CenterContainer/waiweiContainer/neiquanContainer/neiquanViewport"]
+custom_minimum_size = Vector2(500, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+texture = ExtResource("2")
+expand_mode = 1
+
+[node name="ColorRect2" type="TextureRect" parent="CenterContainer/waiweiContainer/neiquanContainer/neiquanViewport"]
+custom_minimum_size = Vector2(500, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1")
+expand_mode = 1
+
+[node name="waiwei_select" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 553.5
+offset_top = 471.0
+offset_right = 627.5
+offset_bottom = 545.0
+pivot_offset = Vector2(37, 37)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("7")
+
+[node name="neiquan_select" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 553.5
+offset_top = 471.0
+offset_right = 627.5
+offset_bottom = 545.0
+pivot_offset = Vector2(37, 37)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("7")
+
+[connection signal="on_click" from="." to="." method="_on_Control_on_click"]
+[connection signal="gui_input" from="CenterContainer/waiweiContainer" to="." method="_on_waiwei_container_gui_input"]
+[connection signal="gui_input" from="CenterContainer/waiweiContainer/neiquanContainer" to="." method="_on_neiquan_container_gui_input"]

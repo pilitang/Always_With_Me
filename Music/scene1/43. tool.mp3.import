@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vxdkxsgnsnck"
+path="res://.godot/imported/43. tool.mp3-0b4ee5cb55adf3122c837046a429d773.mp3str"
+
+[deps]
+
+source_file="res://Music/scene1/43. tool.mp3"
+dest_files=["res://.godot/imported/43. tool.mp3-0b4ee5cb55adf3122c837046a429d773.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

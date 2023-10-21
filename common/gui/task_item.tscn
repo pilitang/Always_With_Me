@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bedxgdcjlx72w"]
+
+[ext_resource type="Script" path="res://common/gui/task_item.gd" id="1_xguxb"]
+
+[node name="Label" type="Label"]
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "完成种植三个甜甜圈（0/3）"
+script = ExtResource("1_xguxb")

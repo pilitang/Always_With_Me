@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4k7tk0r11jnh"
+path="res://.godot/imported/23. fair.mp3-b5c81419b4d3add0e6a1b77b159e976a.mp3str"
+
+[deps]
+
+source_file="res://Music/scene1/23. fair.mp3"
+dest_files=["res://.godot/imported/23. fair.mp3-b5c81419b4d3add0e6a1b77b159e976a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

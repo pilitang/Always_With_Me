@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cscoc38u12jbv"]
+
+[ext_resource type="StyleBox" path="res://common/gui/dialog/stylebox/dialog_item.stylebox" id="1_pnhko"]
+[ext_resource type="Script" path="res://common/base/base_control.gd" id="2"]
+
+[node name="content" type="Label"]
+custom_minimum_size = Vector2(400, 140)
+offset_top = 568.0
+offset_right = 400.0
+offset_bottom = 708.0
+mouse_filter = 0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("1_pnhko")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2")

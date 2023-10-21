@@ -1,0 +1,144 @@
+[gd_scene load_steps=6 format=3 uid="uid://byreflwf52ttq"]
+
+[ext_resource type="Texture2D" uid="uid://c2uaseqvfko6u" path="res://sociality/moment/res/xq2.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bie7y4yvgcj5" path="res://sociality/res/ui/xq.png" id="2"]
+[ext_resource type="Script" path="res://common/gui/share/share.gd" id="4"]
+[ext_resource type="Script" path="res://common/base/base_control.gd" id="5"]
+
+[sub_resource type="StyleBoxFlat" id="3"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="dialog" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("4")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+alignment = 1
+script = ExtResource("5")
+styleBox = SubResource("3")
+
+[node name="weixin" type="MarginContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/weixin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2/weixin/VBoxContainer"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HBoxContainer2/weixin/VBoxContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "微信"
+
+[node name="weixinCircle" type="MarginContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/weixinCircle"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2/weixinCircle/VBoxContainer"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+texture = ExtResource("1")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HBoxContainer2/weixinCircle/VBoxContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "微信朋友圈"
+
+[node name="QQ" type="MarginContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/QQ"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2/QQ/VBoxContainer"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+texture = ExtResource("1")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HBoxContainer2/QQ/VBoxContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "QQ"
+
+[node name="QZone" type="MarginContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/QZone"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2/QZone/VBoxContainer"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+texture = ExtResource("1")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HBoxContainer2/QZone/VBoxContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "QQ空间"
+
+[connection signal="on_click" from="." to="." method="_on_on_click"]
+[connection signal="on_click" from="HBoxContainer2/weixin" to="." method="_on_weixin_on_click"]
+[connection signal="on_click" from="HBoxContainer2/weixinCircle" to="." method="_on_weixinCircle_on_click"]
+[connection signal="on_click" from="HBoxContainer2/QQ" to="." method="_on_QQ_on_click"]
+[connection signal="on_click" from="HBoxContainer2/QZone" to="." method="_on_QZone_on_click"]

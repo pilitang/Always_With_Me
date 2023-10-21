@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://common/gui/common_bg.tscn" type="PackedScene" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="panel" parent="." instance=ExtResource( 1 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+root_path = NodePath("..")
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+offset_left = 1302.0
+offset_top = 35.0
+offset_right = 1894.0
+offset_bottom = 1035.0
+edit_alpha = false
+presets_visible = false

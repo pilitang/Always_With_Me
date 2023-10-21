@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bo20yr2ptunfl"
+path="res://.godot/imported/35. site.mp3-8f0b588d2d9ac8fc23a3ae9bf74aa0d2.mp3str"
+
+[deps]
+
+source_file="res://Music/scene1/35. site.mp3"
+dest_files=["res://.godot/imported/35. site.mp3-8f0b588d2d9ac8fc23a3ae9bf74aa0d2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

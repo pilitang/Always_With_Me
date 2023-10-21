@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca7r0qvy7sg1a"]
+
+[ext_resource type="Script" path="res://role/role.gd" id="1_xgg50"]
+[ext_resource type="SpriteFrames" uid="uid://d3oxyra0lksud" path="res://role/chihiro.tres" id="2_t8y5f"]
+[ext_resource type="SpriteFrames" uid="uid://dn5nbwocffo74" path="res://role/haku.tres" id="3_4mbny"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_flibx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_764tt"]
+size = Vector2(99, 154)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_xgg50")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 12)
+scale = Vector2(0.389, 0.268)
+sprite_frames = ExtResource("2_t8y5f")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_flibx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -84.0
+offset_right = 16.0
+offset_bottom = -61.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, 12)
+shape = SubResource("RectangleShape2D_764tt")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-3, 12)
+scale = Vector2(0.268, 0.268)
+sprite_frames = ExtResource("3_4mbny")
+animation = &"down"

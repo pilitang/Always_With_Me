@@ -1,0 +1,41 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dn5nbwocffo74"]
+
+[ext_resource type="Texture2D" uid="uid://dd2f24wrv8o7o" path="res://Player/Haku_down.png" id="1_6r6op"]
+[ext_resource type="Texture2D" uid="uid://b35k0q7hdh7fr" path="res://Player/Haku_side.png" id="2_7qgyx"]
+[ext_resource type="Texture2D" uid="uid://irjkx0c7sw2e" path="res://Player/Haku_side_right.png" id="3_tpk4l"]
+[ext_resource type="Texture2D" uid="uid://dvsdysnwsxugw" path="res://Player/Haku_up.png" id="4_hfi6x"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6r6op")
+}],
+"loop": true,
+"name": &"down",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7qgyx")
+}],
+"loop": true,
+"name": &"left",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tpk4l")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hfi6x")
+}],
+"loop": true,
+"name": &"up",
+"speed": 1.0
+}]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmwrhym7gtmog"]
+
+[ext_resource type="Script" path="res://common/base/base_control.gd" id="1_b88ki"]
+[ext_resource type="Texture2D" uid="uid://bo7rqxffygfq1" path="res://gres/button_return.webp" id="2_2e25y"]
+
+[node name="back" type="MarginContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+script = ExtResource("1_b88ki")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture = ExtResource("2_2e25y")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://703eml1ejoap"]
+
+[ext_resource type="Texture2D" uid="uid://cx5283h4ji1tb" path="res://common/gui/dialog/res/icon_shanchu.webp" id="1"]
+[ext_resource type="Script" path="res://common/gui/dialog/dialog_item_content_texture_text.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://mt82f3bewf2q" path="res://common/gui/dialog/res/separation_line.webp" id="4"]
+
+[node name="Control" type="HBoxContainer"]
+offset_right = 90.0
+offset_bottom = 56.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+script = ExtResource("2")
+
+[node name="space1" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="textureContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_right = 5
+
+[node name="textureRect" type="TextureRect" parent="textureContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("1")
+expand_mode = 1
+
+[node name="label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "举报"
+
+[node name="space2" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="separation_line" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("4")

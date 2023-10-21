@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://cuseayami1cq3"]
+
+[ext_resource type="Script" path="res://common/gui/input/input.gd" id="3"]
+[ext_resource type="Script" path="res://common/base/base_edit.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://bk3tiqne5kd2p" path="res://common/gui/common_bg.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://dxnsaxcwsl1wu" path="res://common/gui/status_fill_height.tscn" id="6"]
+[ext_resource type="Animation" uid="uid://b1v8js2vt5t0p" path="res://common/anim/fade_out.anim" id="7"]
+[ext_resource type="Animation" uid="uid://gdphglykxual" path="res://common/anim/fade_in.anim" id="8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6ylg"]
+content_margin_left = 60.0
+content_margin_top = 30.0
+content_margin_right = 60.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_en3xh"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("3")
+enter_anim = ExtResource("8")
+exit_anim = ExtResource("7")
+
+[node name="bg" parent="." instance=ExtResource("5")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="statusHeight" parent="HBoxContainer" instance=ExtResource("6")]
+layout_mode = 2
+color = Color(0, 0, 0, 0)
+
+[node name="sendContent" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+focus_mode = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_background_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_h6ylg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_en3xh")
+context_menu_enabled = false
+wrap_mode = 1
+caret_blink = true
+script = ExtResource("4")
+
+[connection signal="on_click" from="bg" to="." method="_on_bg_on_click"]
+[connection signal="text_changed" from="HBoxContainer/sendContent" to="." method="_on_sendContent_text_changed"]

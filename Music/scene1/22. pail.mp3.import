@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqpou5cvib5ad"
+path="res://.godot/imported/22. pail.mp3-5ceace40581c99de56202c2ff1e26a47.mp3str"
+
+[deps]
+
+source_file="res://Music/scene1/22. pail.mp3"
+dest_files=["res://.godot/imported/22. pail.mp3-5ceace40581c99de56202c2ff1e26a47.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,218 @@
+[gd_scene load_steps=19 format=3 uid="uid://cfrt11ycadwli"]
+
+[ext_resource type="Script" path="res://common/gui/slide.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bo5oqoah7ty1y" path="res://common/gui/date/res/bg2.webp" id="2"]
+[ext_resource type="Script" path="res://common/gui/date/time_select.gd" id="3"]
+[ext_resource type="Script" path="res://common/base/base_control.gd" id="4"]
+[ext_resource type="Script" path="res://common/base/base_scroll_container.gd" id="6"]
+[ext_resource type="PackedScene" uid="uid://bk3tiqne5kd2p" path="res://common/gui/common_bg.tscn" id="7"]
+[ext_resource type="Texture2D" uid="uid://dhkuvv0jmwmnr" path="res://gres/bg.webp" id="8"]
+[ext_resource type="Texture2D" uid="uid://b4mlltlvf0l1c" path="res://common/gui/date/res/bg1.webp" id="9"]
+[ext_resource type="Texture2D" uid="uid://b8tufni46510f" path="res://gres/icon_pic.webp" id="10"]
+[ext_resource type="Texture2D" uid="uid://uit1multyvn1" path="res://common/gui/date/res/icon_pic1.webp" id="11"]
+[ext_resource type="Texture2D" uid="uid://u1ouwj1cc8wc" path="res://common/gui/date/res/title.webp" id="12"]
+[ext_resource type="Texture2D" uid="uid://cqypprigbgpna" path="res://common/gui/dialog/res/btn_quxiao.webp" id="13"]
+[ext_resource type="Texture2D" uid="uid://db7qefq04u3fr" path="res://common/gui/dialog/res/btn_queding.webp" id="14"]
+[ext_resource type="Animation" uid="uid://dxaw2e4ig0jfj" path="res://common/anim/center_enter.anim" id="15"]
+[ext_resource type="Animation" uid="uid://txcjie2s581k" path="res://common/anim/center_exit.anim" id="16"]
+[ext_resource type="Animation" uid="uid://b1v8js2vt5t0p" path="res://common/anim/fade_out.anim" id="17"]
+[ext_resource type="Animation" uid="uid://gdphglykxual" path="res://common/anim/fade_in.anim" id="18"]
+
+[sub_resource type="StyleBoxTexture" id="6"]
+texture = ExtResource("8")
+region_rect = Rect2(0, 0, 657, 457)
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("3")
+enter_anim = ExtResource("18")
+exit_anim = ExtResource("17")
+
+[node name="bg" parent="." instance=ExtResource("7")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="dialogControl" type="MarginContainer" parent="Control"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -312.5
+offset_right = 450.0
+offset_bottom = 312.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(450, 312)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_bottom = 60
+script = ExtResource("4")
+styleBox = SubResource("6")
+enter_anim = ExtResource("15")
+exit_anim = ExtResource("16")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/dialogControl"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+script = ExtResource("4")
+
+[node name="MarginContainer3" type="MarginContainer" parent="Control/dialogControl/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.18
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_bottom = 30
+
+[node name="display_time" type="Label" parent="Control/dialogControl/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "0时0分"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/dialogControl/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="MarginContainer" parent="Control/dialogControl/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/dialogControl/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9")
+expand_mode = 1
+
+[node name="core" type="TextureRect" parent="Control/dialogControl/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/dialogControl/VBoxContainer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 259)
+layout_mode = 2
+
+[node name="ScrollContainer3" type="ScrollContainer" parent="Control/dialogControl/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+script = ExtResource("6")
+
+[node name="hours" type="VBoxContainer" parent="Control/dialogControl/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1")
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Control/dialogControl/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("6")
+
+[node name="minutes" type="VBoxContainer" parent="Control/dialogControl/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer2"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/dialogControl/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="space1" type="MarginContainer" parent="Control/dialogControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="cancel" type="MarginContainer" parent="Control/dialogControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 45
+script = ExtResource("4")
+
+[node name="TextureRect" type="TextureRect" parent="Control/dialogControl/VBoxContainer/HBoxContainer/cancel"]
+layout_mode = 2
+texture = ExtResource("13")
+
+[node name="confirm" type="MarginContainer" parent="Control/dialogControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 12
+size_flags_vertical = 5
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 45
+script = ExtResource("4")
+
+[node name="TextureRect" type="TextureRect" parent="Control/dialogControl/VBoxContainer/HBoxContainer/confirm"]
+layout_mode = 2
+texture = ExtResource("14")
+
+[node name="space2" type="MarginContainer" parent="Control/dialogControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="Control/dialogControl"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="Control/dialogControl/Control"]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = -20.0
+mouse_filter = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control/dialogControl/Control/Control"]
+layout_mode = 0
+offset_left = -130.0
+offset_top = -115.0
+offset_right = 52.0
+offset_bottom = 40.0
+texture = ExtResource("11")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/dialogControl/Control/Control"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -58.0
+offset_right = 124.0
+offset_bottom = 49.0
+texture = ExtResource("12")
+
+[node name="TextureRect" type="TextureRect" parent="Control/dialogControl/Control"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -75.0
+offset_top = -23.0
+offset_right = 41.0
+offset_bottom = 88.0
+texture = ExtResource("10")
+
+[connection signal="on_click" from="Control/dialogControl/VBoxContainer/HBoxContainer/cancel" to="." method="_on_cancel_on_click"]
+[connection signal="on_click" from="Control/dialogControl/VBoxContainer/HBoxContainer/confirm" to="." method="_on_confirm_on_click"]
