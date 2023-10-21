@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb1b46y04yeol"]
+
+[ext_resource type="Script" path="res://common/gui/joy_sticker_button.gd" id="1_fa3hd"]
+[ext_resource type="Texture2D" uid="uid://deigtvfp7pdq5" path="res://dreamplanet/res/rocker_bg.webp" id="2_nkbfo"]
+[ext_resource type="Texture2D" uid="uid://c4t4ssxgoutsu" path="res://dreamplanet/res/rocker.webp" id="3_d5mpe"]
+
+[node name="joy_sticker" type="MarginContainer"]
+offset_right = 234.0
+offset_bottom = 234.0
+script = ExtResource("1_fa3hd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(234, 234)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="panel" type="MarginContainer" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -117.0
+offset_right = 117.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="Control/panel"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_nkbfo")
+stretch_mode = 2
+
+[node name="rocker" type="TextureRect" parent="Control/panel"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("3_d5mpe")
+stretch_mode = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

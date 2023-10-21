@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://c321sqkol7j10"]
+
+[ext_resource type="PackedScene" uid="uid://cdv48tp3puc3t" path="res://common/gui/icon/arrow_down.tscn" id="1"]
+[ext_resource type="Script" path="res://common/gui/common_refresh_header.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://j00fpen5abrx" path="res://common/gui/icon/loading.tscn" id="3"]
+
+[node name="HBoxContainer" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 100)
+offset_right = 190.0
+offset_bottom = 39.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+script = ExtResource("2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -1.0
+anchor_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="arrowDown" parent="Control/HBoxContainer/MarginContainer" instance=ExtResource("1")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="loading" parent="Control/HBoxContainer/MarginContainer" instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="label" type="Label" parent="Control/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.694118, 0.466667, 0.898039, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "下拉刷新"
+horizontal_alignment = 1

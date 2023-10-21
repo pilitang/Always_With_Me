@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr31ehjcehqwe"]
+
+[ext_resource type="Script" path="res://common/gui/text_item.gd" id="1_81alo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h47ld"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.654232, 0.654232, 0.654232, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Label" type="Label"]
+theme_override_styles/normal = SubResource("StyleBoxFlat_h47ld")
+text = "textasdasd"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_81alo")
+metadata/_edit_use_anchors_ = true

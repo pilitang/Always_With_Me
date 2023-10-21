@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cihnys3ovbaoi"
+path="res://.godot/imported/28. below.mp3-de257d44bc0f32e5bfff7e4b1d86ba0a.mp3str"
+
+[deps]
+
+source_file="res://Music/scene1/28. below.mp3"
+dest_files=["res://.godot/imported/28. below.mp3-de257d44bc0f32e5bfff7e4b1d86ba0a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

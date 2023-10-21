@@ -1,0 +1,158 @@
+[gd_scene load_steps=17 format=3 uid="uid://c57p52dsha5li"]
+
+[ext_resource type="PackedScene" uid="uid://bk3tiqne5kd2p" path="res://common/gui/common_bg.tscn" id="2"]
+[ext_resource type="Script" path="res://common/gui/dialog/common_dialog_input.gd" id="3"]
+[ext_resource type="Script" path="res://common/base/base_control.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://dxnsaxcwsl1wu" path="res://common/gui/status_fill_height.tscn" id="5"]
+[ext_resource type="Script" path="res://common/base/base_edit.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://dhkuvv0jmwmnr" path="res://gres/bg.webp" id="7"]
+[ext_resource type="Texture2D" uid="uid://856al343nxgh" path="res://common/gui/dialog/res/icon_pic.webp" id="8"]
+[ext_resource type="Texture2D" uid="uid://cqypprigbgpna" path="res://common/gui/dialog/res/btn_quxiao.webp" id="9"]
+[ext_resource type="Texture2D" uid="uid://db7qefq04u3fr" path="res://common/gui/dialog/res/btn_queding.webp" id="10"]
+[ext_resource type="Texture2D" uid="uid://ci0syiwjomquv" path="res://common/gui/dialog/res/separation_line_h.webp" id="11"]
+[ext_resource type="Animation" uid="uid://b1v8js2vt5t0p" path="res://common/anim/fade_out.anim" id="12"]
+[ext_resource type="Animation" uid="uid://dxaw2e4ig0jfj" path="res://common/anim/center_enter.anim" id="13"]
+[ext_resource type="Animation" uid="uid://gdphglykxual" path="res://common/anim/fade_in.anim" id="15"]
+
+[sub_resource type="StyleBoxTexture" id="14"]
+texture = ExtResource("7")
+region_rect = Rect2(0, 0, 657, 457)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn05v"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x3yrh"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+pivot_offset = Vector2(-636, -307)
+script = ExtResource("3")
+enter_anim = ExtResource("15")
+exit_anim = ExtResource("12")
+
+[node name="statusHeight" parent="." instance=ExtResource("5")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="bg" parent="Control" instance=ExtResource("2")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+
+[node name="dialogControl" type="MarginContainer" parent="Control"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -259.0
+offset_right = 450.0
+offset_bottom = 259.0
+pivot_offset = Vector2(450, 259)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_bottom = 60
+script = ExtResource("4")
+styleBox = SubResource("14")
+enter_anim = ExtResource("13")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/dialogControl"]
+custom_minimum_size = Vector2(657, 457)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/dialogControl/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.18
+
+[node name="content" type="LineEdit" parent="Control/dialogControl/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_gn05v")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x3yrh")
+placeholder_text = "请输入标签"
+alignment = 1
+script = ExtResource("6")
+
+[node name="TextureRect" type="TextureRect" parent="Control/dialogControl/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("11")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/dialogControl/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="space1" type="MarginContainer" parent="Control/dialogControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="cancelContainer" type="MarginContainer" parent="Control/dialogControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 60
+script = ExtResource("4")
+
+[node name="cancel" type="TextureRect" parent="Control/dialogControl/VBoxContainer/HBoxContainer/cancelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("9")
+
+[node name="confirmContainer" type="MarginContainer" parent="Control/dialogControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 12
+size_flags_vertical = 5
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 60
+script = ExtResource("4")
+
+[node name="confirm" type="TextureRect" parent="Control/dialogControl/VBoxContainer/HBoxContainer/confirmContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("10")
+
+[node name="space2" type="MarginContainer" parent="Control/dialogControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="Control/dialogControl"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/dialogControl/Control"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -122.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = 83.0
+texture = ExtResource("8")
+
+[connection signal="on_click" from="Control/dialogControl/VBoxContainer/HBoxContainer/cancelContainer" to="." method="_on_cancel_on_click"]
+[connection signal="on_click" from="Control/dialogControl/VBoxContainer/HBoxContainer/confirmContainer" to="." method="_on_confirm_on_click"]

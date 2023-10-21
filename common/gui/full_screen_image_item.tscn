@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca8g4w37ks4c6"]
+
+[ext_resource type="Script" path="res://common/gui/full_screen_image_item.gd" id="1"]
+[ext_resource type="Script" path="res://common/gui/common_image.gd" id="2"]
+
+[node name="choose_node" type="MarginContainer"]
+custom_minimum_size = Vector2(1920, 916)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
+script = ExtResource("1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2")

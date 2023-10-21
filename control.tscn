@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0hwx8v87i0gl"]
+
+[ext_resource type="Script" path="res://Panel.gd" id="1_iv7wf"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iv7wf")
+
+[node name="TextEdit" type="TextEdit" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 15.0
+offset_right = 992.0
+offset_bottom = 189.0
+wrap_mode = 1
+
+[node name="Button" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 214.0
+offset_right = 555.0
+offset_bottom = 247.0
+text = "Commit"
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 273.0
+offset_right = 965.0
+offset_bottom = 610.0
+autowrap_mode = 3
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Control/Panel"]
+
+[node name="HTTPRequest2" type="HTTPRequest" parent="Control/Panel"]
+
+[connection signal="on_click" from="Control/Panel" to="Control/Panel" method="_on_on_click"]
+[connection signal="pressed" from="Control/Panel/Button" to="Control/Panel" method="_on_button_pressed"]
+[connection signal="request_completed" from="Control/Panel/HTTPRequest" to="Control/Panel" method="_on_http_request_request_completed"]
+[connection signal="request_completed" from="Control/Panel/HTTPRequest2" to="Control/Panel" method="_on_http_request_2_request_completed"]

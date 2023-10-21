@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkmgpl0udrbwj"
+path="res://.godot/imported/48. start.mp3-4c66e1f606b314dcbe6224e289b0e375.mp3str"
+
+[deps]
+
+source_file="res://Music/scene1/48. start.mp3"
+dest_files=["res://.godot/imported/48. start.mp3-4c66e1f606b314dcbe6224e289b0e375.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

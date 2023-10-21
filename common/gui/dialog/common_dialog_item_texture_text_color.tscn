@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://6e1pgmrnv4bq"]
+
+[ext_resource type="Script" path="res://common/gui/dialog/common_dialog_item_texture_text_color.gd" id="1_6y7cl"]
+[ext_resource type="PackedScene" uid="uid://bk3tiqne5kd2p" path="res://common/gui/common_bg.tscn" id="2_58ejv"]
+[ext_resource type="Texture2D" uid="uid://ciqnkmurgpvtu" path="res://gres/down.png" id="3_5bdda"]
+[ext_resource type="Script" path="res://common/base/base_data_control.gd" id="4_ch2i7"]
+[ext_resource type="Texture2D" uid="uid://dirtjpt8osaxv" path="res://common/gui/date/res/bg1.webp" id="5_e3n3u"]
+
+[sub_resource type="StyleBoxTexture" id="1"]
+texture = ExtResource("5_e3n3u")
+region_rect = Rect2(0, 0, 600, 241)
+
+[node name="Control" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6y7cl")
+
+[node name="bg" parent="." instance=ExtResource("2_58ejv")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="down_arrow" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 17)
+layout_mode = 2
+offset_right = 24.0
+offset_bottom = 17.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("3_5bdda")
+expand_mode = 1
+
+[node name="marginContainer" type="MarginContainer" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 24.0
+offset_bottom = 25.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+script = ExtResource("4_ch2i7")
+styleBox = SubResource("1")
+
+[node name="contentContainer" type="HBoxContainer" parent="Control/marginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[connection signal="on_click" from="." to="." method="_on_Control_on_click"]
+[connection signal="on_click" from="bg" to="." method="_on_Control_on_click"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://coeyfnagrrt7f"]
+
+[ext_resource type="PackedScene" uid="uid://bk3tiqne5kd2p" path="res://common/gui/common_bg.tscn" id="1"]
+[ext_resource type="Script" path="res://common/gui/dialog/common_dialog_item.gd" id="2"]
+[ext_resource type="Script" path="res://common/base/base_control.gd" id="4"]
+[ext_resource type="StyleBox" path="res://common/gui/dialog/stylebox/dialog_item_bg_left.stylebox" id="5"]
+
+[node name="root" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("2")
+
+[node name="bg" parent="." instance=ExtResource("1")]
+layout_mode = 2
+
+[node name="contentContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 6
+theme_override_constants/separation = 2
+script = ExtResource("4")
+styleBox = ExtResource("5")
+
+[connection signal="on_click" from="bg" to="." method="_on_bg_on_click"]

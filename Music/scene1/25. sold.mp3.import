@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfcyudsi6kyc"
+path="res://.godot/imported/25. sold.mp3-16971c23a1235e348482c6e1fa55898c.mp3str"
+
+[deps]
+
+source_file="res://Music/scene1/25. sold.mp3"
+dest_files=["res://.godot/imported/25. sold.mp3-16971c23a1235e348482c6e1fa55898c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgw0d5muqbmuy"]
+
+[ext_resource type="Script" path="res://common/load/loading.gd" id="1_jv7hf"]
+[ext_resource type="Texture2D" uid="uid://b1mmln0436eda" path="res://common/load/texture/jd.webp" id="2_w2c4r"]
+
+[node name="loading" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_jv7hf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.439216, 0.439216, 0.439216, 1)
+
+[node name="ProgressBar" type="TextureProgressBar" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 5
+texture_progress = ExtResource("2_w2c4r")

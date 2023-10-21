@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkfo27vevm1y2"]
+
+[ext_resource type="StyleBox" path="res://common/gui/dialog/stylebox/dialog_item.stylebox" id="1_gw4hy"]
+[ext_resource type="Script" path="res://common/gui/dialog/dialog_item_post_content.gd" id="2"]
+
+[node name="content" type="Label"]
+custom_minimum_size = Vector2(400, 140)
+offset_top = 568.0
+offset_right = 400.0
+offset_bottom = 708.0
+mouse_filter = 0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("1_gw4hy")
+text = "终止星愿aaaaa"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2")

@@ -1,0 +1,201 @@
+[gd_scene load_steps=17 format=3 uid="uid://cfys15fa6a63w"]
+
+[ext_resource type="Texture2D" uid="uid://dvnrk3rs8xc0j" path="res://common/gui/dialog/res/divider.webp" id="1"]
+[ext_resource type="Script" path="res://common/gui/dialog/common_dialog_message.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bk3tiqne5kd2p" path="res://common/gui/common_bg.tscn" id="3"]
+[ext_resource type="Script" path="res://common/base/base_control.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://cech1knyipoj5" path="res://common/gui/dialog/res/btn_2.webp" id="6"]
+[ext_resource type="Script" path="res://common/base/base_rich_text_label.gd" id="7"]
+[ext_resource type="Texture2D" uid="uid://ch5dso3ou7cj2" path="res://common/gui/dialog/res/btn_1.webp" id="8"]
+[ext_resource type="Texture2D" uid="uid://bsyvdw2t2de2e" path="res://gres/bg.webp" id="9"]
+[ext_resource type="Texture2D" uid="uid://b82p4soakhvdq" path="res://common/gui/dialog/res/icon_pic_2.webp" id="10"]
+[ext_resource type="Texture2D" uid="uid://crbbn51f3agqq" path="res://common/gui/dialog/res/title.webp" id="11"]
+[ext_resource type="Animation" uid="uid://gdphglykxual" path="res://common/anim/fade_in.anim" id="13"]
+[ext_resource type="Animation" uid="uid://b1v8js2vt5t0p" path="res://common/anim/fade_out.anim" id="14"]
+[ext_resource type="Animation" uid="uid://dxaw2e4ig0jfj" path="res://common/anim/center_enter.anim" id="15"]
+
+[sub_resource type="StyleBoxTexture" id="14"]
+texture = ExtResource("9")
+texture_margin_left = 40.0
+texture_margin_top = 25.0
+texture_margin_right = 40.0
+texture_margin_bottom = 80.0
+region_rect = Rect2(0, 0, 657, 457)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjuuo"]
+content_margin_left = 60.0
+content_margin_top = 60.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plmfl"]
+content_margin_left = 60.0
+content_margin_top = 60.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="MarginContainer" type="MarginContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+enter_anim = ExtResource("13")
+exit_anim = ExtResource("14")
+
+[node name="bg" parent="." instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="dialogue" type="MarginContainer" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 457)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -228.5
+offset_right = 450.0
+offset_bottom = 228.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(450, 228)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_bottom = 60
+script = ExtResource("4")
+styleBox = SubResource("14")
+enter_anim = ExtResource("15")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/dialogue"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+script = ExtResource("4")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/dialogue/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+
+[node name="richLabel" type="RichTextLabel" parent="Control/dialogue/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/normal_font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_tjuuo")
+bbcode_enabled = true
+meta_underlined = false
+script = ExtResource("7")
+
+[node name="contentLabel" type="Label" parent="Control/dialogue/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_plmfl")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/dialogue/VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/dialogue/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="cancelContainer" type="MarginContainer" parent="Control/dialogue/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 20
+script = ExtResource("4")
+
+[node name="TextureRect" type="TextureRect" parent="Control/dialogue/VBoxContainer/HBoxContainer/cancelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("8")
+
+[node name="cancel" type="Label" parent="Control/dialogue/VBoxContainer/HBoxContainer/cancelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "取消"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirmContainer" type="MarginContainer" parent="Control/dialogue/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 12
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 20
+script = ExtResource("4")
+
+[node name="TextureRect" type="TextureRect" parent="Control/dialogue/VBoxContainer/HBoxContainer/confirmContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("6")
+
+[node name="confirm" type="Label" parent="Control/dialogue/VBoxContainer/HBoxContainer/confirmContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "确定"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Control/dialogue"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/dialogue/Control"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -154.0
+offset_top = -63.0
+offset_right = 96.0
+offset_bottom = 84.0
+texture = ExtResource("10")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/dialogue/Control"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.5
+offset_top = -60.0
+offset_right = 72.5
+offset_bottom = 47.0
+texture = ExtResource("11")
+
+[connection signal="on_click" from="Control/dialogue/VBoxContainer/HBoxContainer/cancelContainer" to="." method="_on_cancel_on_click"]
+[connection signal="on_click" from="Control/dialogue/VBoxContainer/HBoxContainer/confirmContainer" to="." method="_on_confirm_on_click"]

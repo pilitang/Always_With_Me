@@ -1,0 +1,246 @@
+[
+	{
+		"expression":["pull","pool"],
+		"correct":"pool",
+		"bgm":"res://Music/scene1/1. pool.mp3"
+	},
+	{
+		"expression":["mouse","mouth"],
+		"correct":"mouse",
+		"bgm":"res://Music/scene1/2. mouse.mp3"
+	},
+	{
+		"expression": [
+			"red",
+			"read"
+		],
+		"correct": "read",
+		"bgm": "res://Music/scene1/3. read.mp3"
+	},
+	{
+		"expression": [
+			"bull",
+			"bowl"
+		],
+		"correct": "bowl",
+		"bgm": "res://Music/scene1/4. bowl.mp3"
+	},
+	{
+		"expression": [
+			"work",
+			"walk"
+		],
+		"correct": "walk",
+		"bgm": "res://Music/scene1/5. walk.mp3"
+	},
+	{
+		"expression": [
+			"bus",
+			"bath"
+		],
+		"correct": "bath",
+		"bgm": "res://Music/scene1/6. bath.mp3"
+	},
+	{
+		"expression": [
+			"down",
+			"done"
+		],
+		"correct": "down",
+		"bgm": "res://Music/scene1/7. down.mp3"
+	},
+	{
+		"expression": [
+			"pill",
+			"peel"
+		],
+		"correct": "pill",
+		"bgm": "res://Music/scene1/8. pill.mp3"
+	},
+	{
+		"expression": [
+			"beer",
+			"beard"
+		],
+		"correct": "beer",
+		"bgm": "res://Music/scene1/9. beer.mp3"
+	},
+	{
+		"expression": [
+			"salt",
+			"sale"
+		],
+		"correct": "sale",
+		"bgm": "res://Music/scene1/10. sale.mp3"
+	},
+	{
+		"expression": [
+			"weak",
+			"week"
+		],
+		"correct": "week",
+		"bgm": "res://Music/scene1/11. week .mp3"
+	},
+	{
+		"expression": [
+			"allow",
+			"aloud"
+		],
+		"correct": "aloud",
+		"bgm": "res://Music/scene1/12. aloud.mp3"
+	},
+	{
+		"expression": [
+			"white",
+			"right"
+		],
+		"correct": "white",
+		"bgm": "res://Music/scene1/13. white.mp3"
+	},
+	{
+		"expression": [
+			"waste",
+			"worst"
+		],
+		"correct": "waste",
+		"bgm": "res://Music/scene1/14. waste.mp3"
+	},
+	{
+		"expression": [
+			"step",
+			"sreal"
+		],
+		"correct": "sreal",
+		"bgm": "res://Music/scene1/15. sreal.mp3"
+	},
+	{
+		"expression": [
+			"throw",
+			"through"
+		],
+		"correct": "through",
+		"bgm": "res://Music/scene1/16. through.mp3"
+	},
+	{
+		"expression": [
+			"role",
+			"rode"
+		],
+		"correct": "role",
+		"bgm": "res://Music/scene1/17. role.mp3"
+	},
+	{
+		"expression": [
+			"head",
+			"here"
+		],
+		"correct": "here",
+		"bgm": "res://Music/scene1/18. here.mp3"
+	},
+	{
+		"expression": [
+			"plain",
+			"plant"
+		],
+		"correct": "plain",
+		"bgm": "res://Music/scene1/19. plain.mp3"
+	},
+	{
+		"expression": [
+			"cereal",
+			"series"
+		],
+		"correct": "cereal",
+		"bgm": "res://Music/scene1/20. cereal.mp3"
+	},
+	{
+		"expression": [
+			"cereal",
+			"series"
+		],
+		"correct": "cereal",
+		"bgm": "res://Music/scene1/20. cereal.mp3"
+	},
+	{
+		"expression": [
+			"berry",
+			"boring"
+		],
+		"correct": "berry",
+		"bgm": "res://Music/scene1/21. berry.mp3"
+	},
+	{
+		"expression": [
+			"pail",
+			"pair"
+		],
+		"correct": "pail",
+		"bgm": "res://Music/scene1/22. pail.mp3"
+	},
+	{
+		"expression": [
+			"fair",
+			"hair"
+		],
+		"correct": "fair",
+		"bgm": "res://Music/scene1/23. fair.mp3"
+	},
+	{
+		"expression": [
+			"tail",
+			"table"
+		],
+		"correct": "tail",
+		"bgm": "res://Music/scene1/24. tail.mp3"
+	},
+	{
+		"expression": [
+			"sole",
+			"sold"
+		],
+		"correct": "sold",
+		"bgm": "res://Music/scene1/25. sold.mp3"
+	},
+	{
+		"expression": [
+			"four",
+			"fourth"
+		],
+		"correct": "fourth",
+		"bgm": "res://Music/scene1/26. fourth.mp3"
+	},
+	{
+		"expression": [
+			"peace",
+			"pieces"
+		],
+		"correct": "pieces",
+		"bgm": "res://Music/scene1/27. pieces.mp3"
+	},
+	{
+		"expression": [
+			"blue",
+			"below"
+		],
+		"correct": "below",
+		"bgm": "res://Music/scene1/28. below.mp3"
+	},
+	{
+		"expression": [
+			"road",
+			"rode "
+		],
+		"correct": "road",
+		"bgm": "res://Music/scene1/29. road.mp3"
+	},
+	{
+		"expression": [
+			"greed",
+			"grate"
+		],
+		"correct": "grate",
+		"bgm": "res://Music/scene1/30. grate.mp3"
+	}
+	
+
+]

@@ -1,0 +1,60 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://d3oxyra0lksud"]
+
+[ext_resource type="Texture2D" uid="uid://d3no8u8pgb08y" path="res://Player/Chihiro_down1.png" id="1_kcbtk"]
+[ext_resource type="Texture2D" uid="uid://dr2hn5gu4x2g4" path="res://Player/Chihiro_down2.png" id="2_fewfv"]
+[ext_resource type="Texture2D" uid="uid://bnwt2ikfqvwqo" path="res://Player/Chihiro_down4.png" id="3_3tlxf"]
+[ext_resource type="Texture2D" uid="uid://kky5u2nw3r34" path="res://Player/Chihiro_down3.png" id="4_cabay"]
+[ext_resource type="Texture2D" uid="uid://cf108xxbda8l4" path="res://Player/Chihiro_right1.png" id="5_3gwg2"]
+[ext_resource type="Texture2D" uid="uid://cvitw5owdhus7" path="res://Player/Chihiro_right2.png" id="6_n5c3s"]
+[ext_resource type="Texture2D" uid="uid://cwrn5475wj5jt" path="res://Player/Chihiro_up1.png" id="7_v64j0"]
+[ext_resource type="Texture2D" uid="uid://1amc5v2pmgy2" path="res://Player/Chihiro_up2.png" id="8_7kmmd"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kcbtk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fewfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3tlxf")
+}],
+"loop": true,
+"name": &"down",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fewfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cabay")
+}],
+"loop": true,
+"name": &"left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3gwg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n5c3s")
+}],
+"loop": true,
+"name": &"right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_v64j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7kmmd")
+}],
+"loop": true,
+"name": &"up",
+"speed": 2.0
+}]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddnxljfdd4xmi"
+path="res://.godot/imported/Always with me.mp3-d4b2bfdca0a5d6404844c47cbca0d724.mp3str"
+
+[deps]
+
+source_file="res://Music/Always with me.mp3"
+dest_files=["res://.godot/imported/Always with me.mp3-d4b2bfdca0a5d6404844c47cbca0d724.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
